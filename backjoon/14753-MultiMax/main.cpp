@@ -1,5 +1,7 @@
 // 백준 14753
 // MultiMax
+// 2개 곱하고 3개 곱하고 포문을 도는 방식으로 접근하는게 아니라
+// 정렬 후 필요한 케이스만 뽑아서 총 4개의 테스트만 확인하자
 #include <iostream>
 #include <vector>
 #include <algorithm>
