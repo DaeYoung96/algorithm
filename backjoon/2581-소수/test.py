@@ -5,6 +5,7 @@ def prime_chk(num):
         if num % i == 0:
             return False
         elif i == num-1:
+            print(i)
             return True
     
 a = int(input())
