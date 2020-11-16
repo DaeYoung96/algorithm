@@ -1,28 +1,30 @@
 import math as np
-#소수인지 판별
-def prime_chk(num):
-    for i in range(2, num):
-        if num % i == 0:
-            return False
-        elif i == num-1:
-            print(i)
-            return True
-    
-a = int(input())
-b = int(input())
-#소수를 넣어줄 빈 배열 생성
-arr = []
-for i in range(a,b+1,1):
-    #소수라면 배열에 추가
-    if i == 1:
-        pass
-    elif i == 2:
-        arr.append(i)
-    if prime_chk(i) == True:
-        arr.append(i)
 
-if sum(arr) == 0:
-    print('-1')
-else:
-    print(sum(arr))
-    print(min(arr))
+testNum = int(input())
+# 테스트케이스만큼 반복
+for i in range(0, testNum):
+    # 골드바흐의 페어를 구해야할 수를 입력
+    n = int(input())
+    MIN = 10000
+    num_1 = 0
+    num_2 = 0
+    idx = 0
+    arr = []
+    # 그 수 전까지 소수를 찾아보자
+    for j in range(2, int(n ** 0.5), 1):
+        cnt = 0
+        for k in range(2, j, 1):
+            if j % k == 0:
+                cnt+=1
+        if cnt == 0:
+            arr.append(j)
+            idx += 1
+
+    for j in range (0, idx, 1):
+        for k in range(0, idx, 1):
+            if arr[j] + arr[k] == n:
+                if MIN > abs(arr[j] - arr[k]):
+                    num_1 = arr[j]
+                    num_2 = arr[k]
+                    MIN = abs(arr[j] - arr[k])
+    print(num_1, " ", num_2)
